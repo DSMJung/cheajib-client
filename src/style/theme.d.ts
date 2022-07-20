@@ -1,4 +1,4 @@
-import { theme } from "../theme";
+import { theme } from "../utils/theme";
 
 declare module "styled-components/native" {
   type ThemeType = typeof theme;
