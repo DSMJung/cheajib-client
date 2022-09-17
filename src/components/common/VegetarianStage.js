@@ -44,8 +44,9 @@ const VegetarianStage = (initalState, onChangeLevel) => {
   const [level, setLevel] = useState(initalState && "flexitarian");
   return (
     <StageContainer>
-      {Object.keys(levelNum).map((x) => (
+      {Object.keys(levelNum).map((x, i) => (
         <VegetarianItem
+          key={i}
           level={x}
           currentLevel={level}
           setCurrentLevel={setLevel}
@@ -62,7 +63,6 @@ const VegetarianItem = ({
   setCurrentLevel,
   onChangeLevel,
 }) => {
-  console.log(level, currentLevel);
   return (
     <TouchableOpacity
       activeOpacity={1}

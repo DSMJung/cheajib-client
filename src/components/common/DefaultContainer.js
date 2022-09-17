@@ -1,14 +1,21 @@
 import styled from "styled-components/native";
-
+import { StyleSheet, Platform, StatusBar } from "react-native";
 const DefaultContainer = ({ children }) => {
-  return <Container>{children}</Container>;
+  return (
+    <Container style={safeViewAndroid.AndroidSafeArea}>{children}</Container>
+  );
 };
 
 const Container = styled.SafeAreaView`
   flex: 1;
-  align-items: center;
-  background-color: ${({ theme }) => theme.white};
-  margin: 0 20px;
 `;
+
+const safeViewAndroid = StyleSheet.create({
+  AndroidSafeArea: {
+    flex: 1,
+    backgroundColor: "white",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
+});
 
 export default DefaultContainer;

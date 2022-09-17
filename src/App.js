@@ -4,7 +4,9 @@ import { theme } from "./utils/theme";
 import AppLoading from "expo-app-loading";
 import { Asset } from "expo-asset";
 import { Image } from "react-native";
-
+import DefaultContainer from "./components/common/DefaultContainer";
+import VegetarianStage from "./components/common/VegetarianStage";
+import WEbContainer from "./components/common/WebContainer";
 const cacheImages = (images) => {
   return images.map((image) => {
     if (typeof image === "string") {
@@ -23,7 +25,7 @@ const App = () => {
     await Promise.all([...imageAsset]);
   };
   return isReady ? (
-    <ThemeProvider theme={theme}></ThemeProvider>
+    <WEbContainer></WEbContainer>
   ) : (
     <AppLoading
       startAsync={_loadAsset}
