@@ -6,7 +6,10 @@ class WebContainer extends React.Component {
   render() {
     return (
       <DefaultContainer>
-        <WebView source={{ uri: "http://localhost:3000" }} />
+        <WebView
+          onError={(e) => alert(e)}
+          source={{ uri: "https://cheajib-client.web.app/" }}
+        />
       </DefaultContainer>
     );
   }
